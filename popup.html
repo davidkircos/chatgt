@@ -2,7 +2,7 @@
 <html>
   <head>
     <style>
-    h1 {
+    h1, h5 {
       text-align:center;
     }
     body {
@@ -10,11 +10,21 @@
       background-image: url("/bg.jpg");
       min-width:360px;
     }
+    .sub-header {
+      margin-top: -10px;
+      font-size: 0.7em;
+    }
     .gt {
       color: #fcd036;
     }
     .msg {
       font-size: 1.4em;
+    }
+    .form-control {
+      margin-bottom: 15px;
+    }
+    .center {
+      text-align: center;
     }
     </style>
     <meta charset='utf-8' />
@@ -30,6 +40,8 @@
   <body>
     <!-- Title -->
     <h1 class="gt">Chat<strong>GT</strong></h1>
+    <h5 class="sub-header">Unique chat on every webpage.</h5>
+    <p class="center" id="chatName">hi</p>
     <!-- Chat input form -->
     <form id="chatForm" class="inline-form" target="#">
         <input id="chatBody" class="form-control" type="text" placeholder="Enter text and press enter to send...">

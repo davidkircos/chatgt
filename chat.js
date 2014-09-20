@@ -55,6 +55,9 @@ $(document).ready(function() {
     // get chat for url
     var chatRoom = chatRef.child( tablink );
 
+    // set name
+    document.getElementById('chatName').innerHTML = tablink;
+
     // on chat update, update view
     chatRoom.on('value', function (snapshot) {
       document.getElementById('chatLog').innerHTML = "";
@@ -72,7 +75,7 @@ $(document).ready(function() {
             // generate a unique color repersenting the sender
             color_str = chat_list[i].split(",")[0];
             // draw to chatLog
-            document.getElementById('chatLog').innerHTML += "<div class='msg'> <span style='background-color:" + stringToColour(color_str) + ";color:" + stringToColour(reverse(color_str)) + "'>##</span> " + message + "</div>";
+            document.getElementById('chatLog').innerHTML += "<div class='msg'> <span style='background-color:" + stringToColour(color_str) + ";color:" + stringToColour(reverse(color_str)) + "'>"+ color_str.substring(0, 3).toUpperCase() +"</span> " + message + "</div>";
           }
         }
       } else {

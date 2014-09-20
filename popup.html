@@ -2,21 +2,38 @@
 <html>
   <head>
     <style>
+    h1 {
+      text-align:center;
+    }
     body {
-        min-width:360px;
+      background-color: #000000;
+      background-image: url("/bg.jpg");
+      min-width:360px;
+    }
+    .gt {
+      color: #fcd036;
+    }
+    .msg {
+      font-size: 1.4em;
     }
     </style>
     <meta charset='utf-8' />
+    <link rel="stylesheet" href="bootstrap.min.css">
+
     <script src='firebase.js'></script>
     <script src='firebase-simple-login.js'></script>
     <script src='jquery.min.js'></script>
+    <script src='bootstrap.min.js'></script>
 
     <script src='chat.js'></script>
   </head>
   <body>
+    <!-- Title -->
+    <h1 class="gt">Chat<strong>GT</strong></h1>
     <!-- Chat input form -->
-    <form id="chatForm" target="#">
-      <input id="chatBody" type="text"><input id = "btnSubmit" type="submit" value="Send"/>
+    <form id="chatForm" class="inline-form" target="#">
+        <input id="chatBody" class="form-control" type="text" placeholder="Enter text and press enter to send...">
+        <input id="btnSubmit" class="form-control hidden" type="submit" value="Send"/>
     </form>
     <!-- Where chat content is shown -->
     <p id="chatLog"></p>

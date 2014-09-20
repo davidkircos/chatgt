@@ -2,8 +2,12 @@
   "manifest_version": 2,
 
   "name": "ChatGT",
-  "description": "Anonymous live chat room for every website.",
+  "description": "Anonymous live chat room on every website.",
   "version": "1.0",
+
+   "background": {
+    "page": "background.html"
+  },
 
   "permissions": [
     "tabs",

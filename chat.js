@@ -12,6 +12,22 @@ chrome.storage.local.get('machine-id', function(item){
   macId = storedMacId;
 });
 
+// escape
+var entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': '&quot;',
+    "'": '&#39;',
+    "/": '&#x2F;'
+  };
+
+  function escapeHtml(string) {
+    return String(string).replace(/[&<>"'\/]/g, function (s) {
+      return entityMap[s];
+    });
+  }
+
 // make a color from any string
 var stringToColour = function(str) {
     // str to hash
@@ -36,7 +52,7 @@ function chatPost(chatRoom) {
     }
   });
   // add our new message to it!
-  chatRoom.set( ( macId + "," + document.getElementById("chatBody").value + '\n' + past).substring(0, 1000000) );
+  chatRoom.set( ( macId + "," + escapeHtml(document.getElementById("chatBody").value) + '\n' + past).substring(0, 1000000) );
 
   // clear input field
   document.getElementById("chatBody").value = "";
@@ -75,7 +91,7 @@ $(document).ready(function() {
             // generate a unique color repersenting the sender
             color_str = chat_list[i].split(",")[0];
             // draw to chatLog
-            document.getElementById('chatLog').innerHTML += "<div class='msg'> <span style='background-color:" + stringToColour(color_str) + ";color:" + stringToColour(reverse(color_str)) + "'>"+ color_str.substring(0, 3).toUpperCase() +"</span> " + message + "</div>";
+            document.getElementById('chatLog').innerHTML += "<div class='msg'> <span style='background-color:" + stringToColour(color_str) + ";color:" + stringToColour(reverse(color_str)) + "'>"+ color_str.substring(0, 3).toUpperCase() +"</span> " + escapeHtml(message) + "</div>";
           }
         }
       } else {

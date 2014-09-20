@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "ChatGT",
-  "description": "ChatGT creates a chatroom for each unique base URL.",
+  "description": "Anonymous live chat room for every website.",
   "version": "1.0",
 
   "permissions": [

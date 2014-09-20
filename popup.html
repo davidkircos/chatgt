@@ -3,7 +3,7 @@
   <head>
     <style>
     body {
-        min-width:300px;
+        min-width:360px;
     }
     </style>
     <meta charset='utf-8' />
@@ -11,13 +11,14 @@
     <script src='firebase-simple-login.js'></script>
     <script src='jquery.min.js'></script>
 
-    <!-- Download from https://github.com/firebase/firechat -->
-    <link rel='stylesheet' href='firechat-default.css' />
-    <script src='firechat-default.js'></script>
-    <script src='popup.js'></script>
+    <script src='chat.js'></script>
   </head>
   <body>
-    <input id="chatBody" type="text"><input id = "btnSubmit" type="submit" value="Send"/>
+    <!-- Chat input form -->
+    <form id="chatForm" target="#">
+      <input id="chatBody" type="text"><input id = "btnSubmit" type="submit" value="Send"/>
+    </form>
+    <!-- Where chat content is shown -->
     <p id="chatLog"></p>
   </body>
 </html>

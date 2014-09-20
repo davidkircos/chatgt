@@ -52,7 +52,7 @@ function chatPost(chatRoom) {
     }
   });
   // add our new message to it!
-  chatRoom.set( ( macId + "," + escapeHtml(document.getElementById("chatBody").value) + '\n' + past).substring(0, 1000000) );
+  chatRoom.set( ( macId + ";**;" + escapeHtml(document.getElementById("chatBody").value) + '\n' + past).substring(0, 1000000) );
 
   // clear input field
   document.getElementById("chatBody").value = "";
@@ -89,12 +89,12 @@ $(document).ready(function() {
         var chat_list = snapshot.val().split("\n");
         for (i in chat_list) {
           // get message
-          message = chat_list[i].split(",")[1];
+          message = chat_list[i].split(";**;")[1];
           
           // if message isn't undefined
           if (message) {
             // generate a unique color repersenting the sender
-            color_str = chat_list[i].split(",")[0];
+            color_str = chat_list[i].split(";**;")[0];
             // draw to chatLog
             document.getElementById('chatLog').innerHTML += "<div class='msg'> <span style='background-color:" + stringToColour(color_str) + ";color:" + stringToColour(reverse(color_str)) + "'>"+ color_str.substring(0, 3).toUpperCase() +"</span> " + escapeHtml(message) + "</div>";
           }

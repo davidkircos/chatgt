@@ -67,7 +67,12 @@ $(document).ready(function() {
   chrome.tabs.getSelected(null,function(tab) {
     // simplify url
     tablink = new URL(tab.url).hostname.replace('.', '').replace('.', '');
-    
+
+    // remove www
+    if (tablink.substring(0, 3) == "www") {
+      tablink = tablink.substring(3, tablink.length);
+    }
+
     // get chat for url
     var chatRoom = chatRef.child( tablink );
 
@@ -96,7 +101,7 @@ $(document).ready(function() {
         }
       } else {
         // if we don't have a chat yet!
-        document.getElementById('chatLog').innerHTML = "No chat started yet. Be the first!";
+        document.getElementById('chatLog').innerHTML = "Chat hasen't been started yet. Be the first!";
       }
     }, function (errorObject) {
       // fail gracefully! pretty good for a hackathon eh?

@@ -1,32 +1,23 @@
 <!doctype html>
 <html>
   <head>
-    <title>Getting Started Extension's Popup</title>
     <style>
-      body {
-        min-width: 357px;
-        overflow-x: hidden;
-      }
-
-      img {
-        margin: 5px;
-        border: 2px solid black;
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-      }
+    body {
+        min-width:300px;
+    }
     </style>
+    <meta charset='utf-8' />
+    <script src='firebase.js'></script>
+    <script src='firebase-simple-login.js'></script>
+    <script src='jquery.min.js'></script>
 
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
-     -->
-    <script src="popup.js"></script>
+    <!-- Download from https://github.com/firebase/firechat -->
+    <link rel='stylesheet' href='firechat-default.css' />
+    <script src='firechat-default.js'></script>
+    <script src='popup.js'></script>
   </head>
   <body>
-    Funny!
+    <input id="chatBody" type="text"><input id = "btnSubmit" type="submit" value="Send"/>
+    <p id="chatLog"></p>
   </body>
 </html>
-

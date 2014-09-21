@@ -2,17 +2,19 @@
 <html>
   <head>
     <style>
-    h1, h5 {
-      text-align:center;
-    }
     body {
       background-color: #000000;
-      background-image: url("/bg.jpg");
+      background-image: url("/bg.png");
       min-width:360px;
+    }
+    .header {
+      margin-top: 10px;
+      text-align:center;
     }
     .sub-header {
       margin-top: -10px;
       font-size: 0.7em;
+      text-align:center;
     }
     .gt {
       color: #fcd036;
@@ -31,7 +33,6 @@
     <link rel="stylesheet" href="bootstrap.min.css">
 
     <script src='firebase.js'></script>
-    <script src='firebase-simple-login.js'></script>
     <script src='jquery.min.js'></script>
     <script src='bootstrap.min.js'></script>
 
@@ -39,12 +40,12 @@
   </head>
   <body>
     <!-- Title -->
-    <h1 class="gt">Chat<strong>GT</strong></h1>
+    <h1 class="header gt">Chat<strong>GT</strong></h1>
     <h5 class="sub-header">Anonymous Live Chat on Every Website</h5>
     <p class="center" id="chatName">-</p>
     <!-- Chat input form -->
     <form id="chatForm" class="inline-form" target="#">
-        <input id="chatBody" class="form-control" type="text" placeholder="Enter text and press enter to send">
+        <input id="chatBody" class="form-control" type="text" placeholder="Enter message and press enter to send.">
         <input id="btnSubmit" class="form-control hidden" type="submit" value="Send"/>
     </form>
     <!-- Where chat content is shown -->

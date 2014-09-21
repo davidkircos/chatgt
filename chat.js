@@ -13,20 +13,9 @@ chrome.storage.local.get('machine-id', function(item){
 });
 
 // escape
-var entityMap = {
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': '&quot;',
-    "'": '&#39;',
-    "/": '&#x2F;'
-  };
-
-  function escapeHtml(string) {
-    return String(string).replace(/[&<>"'\/]/g, function (s) {
-      return entityMap[s];
-    });
-  }
+function escapeHtml(str) {
+    return str.replace(/</g,'').replace(/>/g,'') ;
+}
 
 // make a color from any string
 var stringToColour = function(str) {
